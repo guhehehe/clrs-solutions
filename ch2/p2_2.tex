@@ -1,0 +1,71 @@
+\subsection{2-2}
+%\begin{enumerate}[itemsep=0.5em, align=right, leftmargin=2.5em]
+\begin{enumerate}[leftmargin=*]
+	\item We need to show that the elements in $A'$ forms a permutation 
+		of the elements in $A$.
+	\item \textbf{Loop invariant:} $A[j]=min{A[j\twodots \attrib{A}{length}]}$
+		and the subarray $A[j\twodots \attrib{A}{length}]$ is 
+		a permutation of the elements in $A[j\twodots \attrib
+		{A}{length}]$ at the time when the loop started.\\
+		\textbf{Initialization:} On initialization, subarray
+		$A[j\twodots \attrib{A}{length}]$ only contains one
+		element, so its the smallest element in the subarray.\\
+		\textbf{Maintenance:} The only possible operation to
+		the subarray is exchange $A[j]$ and $A[j-1]$ when
+		$A[j]<A[j-1]$. Since $A[j]$ is the smallest element
+		in $A[j\twodots \attrib{A}{length}]$, if the exchange
+		happens, $A[j-1]$ would become the smallest element
+		in $A[j-1\twodots \attrib{A}{length}]$. Meanwhile, 
+		since subarray $A[j\twodots \attrib{A}{length}]$
+		is a permutation of the elements in 
+		$A[j\twodots \attrib{A}{length}]$ at the time the
+		loop started, after exchanging $A[j]$ and $A[j-1]$,
+		$A[j-1\twodots \attrib{A}{length}]$ is still a 
+		permutation of the elements that were in $A[j-1\twodots]$
+		at the time the loop started.\\
+		\textbf{Termination:} Since $j$ decreases by $1$ 
+		after each iteration, the condition that causes 
+		the loop terminate is $j=i$. By the state of the
+		loop invariant, $A[i]=min{A[i\twodots \attrib
+		{A}{length}]}$, and subarray
+		$A[i\twodots \attrib{A}{length}]$ is a permutation
+		of the elements that were in $A[i\twodots \attrib
+		{A}{length}]$ at the time the loop started.
+	\item \textbf{Loop invariant:} Subarray $A'[1\twodots i-1]$
+		contains $i-1$ smallest elements come from
+		array $A[1\twodots \attrib{A}{length}]$ and in
+		ordered manner.\\
+		\textbf{Initialization:} Piror to the first 
+		iteration of the outer \textbf{for} loop, 
+		$i=1$, so there is no element in $A'[1\twodots i-1]$,
+		the loop invariant holds.\\
+		\textbf{Maintenance:} Since $A'[1\twodots i-1]$
+		is the $i-1$ smallest elements from 
+		$A[1\twodots \attrib{A}{length}]$, after the
+		execution of the inner \textbf{for} loop, which
+		makes $A'[i]$ the smallest element of subarray
+		$A[i\twodots \attrib[A][length]]$, and the values
+		in the subarray all come from $A[1\twodots 
+		\attrib{A}{length}]$, hence subarray
+		$A'[1\twodots i]$ contains the $i$ smallest elements
+		in $A[1\twodots \attrib{A}{length}]$.\\
+		\textbf{Termination:} The loop terminates when
+		$i$ reaches $\attrib{A}{length}$, by the state of
+		the loop invariant, $A'[1\twodots \attrib{A}{length-1}]$
+		contains $\attrib{A}{length-1}$ smallest elements of
+		$A[1\twodots \attrib{A}{length}]$, moreover, since
+		$A[\attrib{A}{length}]$ is the only element in the
+		remaining subarray, therefore it is the largest element
+		of $A[1\twodots \attrib{A}{length}]$. In conclusion,
+		array $A'[1\twodots \attrib{A}{length}]$ is a permutation
+		of $A[1\twodots \attrib{A}{length}]$ but in sorted manner.
+	\item The worest case running time of the $\proc{Bubblesort}$
+		is:
+		\begin{displaymath}
+			\sum_{i=1}^{\attrib{A}{length}-1}
+			(n-i+1)=\frac{n^2}{2}
+			=\Theta(n^2)
+		\end{displaymath}
+		It is the same as the worest case running time of 
+		insertion sort.
+\end{enumerate}

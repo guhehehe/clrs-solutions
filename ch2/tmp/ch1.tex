@@ -1,0 +1,199 @@
+\documentclass[a4paper, 11pt]{report}
+\usepackage{parskip}
+\usepackage{clrscode3e}
+\usepackage{mathtools}
+%\usepackage{indentfirst}
+%\setlength{\parskip}{0cm}
+\setlength{\parindent}{1cm}
+\setcounter{secnumdepth}{1}
+\setcounter{tocdepth}{1}
+%\renewcommand\thechapter{\Roman{chapter}}
+
+\begin{document}
+	\tableofcontents
+	\part{Fundations}
+		\chapter{The Role of Algorithms in Computing}
+		\chapter{Getting Started}
+			\section*{Exercises}
+			\addcontentsline{toc}{section}{Exercises}
+				\subsection{2.1-2}
+					\begin{codebox}
+						\Procname{$\proc{Insertion-Sort}(A)$}
+						\li	\For $j \gets 2 \To \attrib{A}{length}$
+							\Do
+						\li		$\id{key} \gets A[j]$
+						\li		$i \gets j-1$
+						\li		\While $i > 0$ and $A[i] < \id{key}$
+								\Do
+						\li			$A[i+1] \gets A[i]$
+						\li			$i \gets i-1$
+								\End
+						\li		$A[i+1] \gets \id{key}$
+							\End
+					\end{codebox}
+				\subsection{2.1-3}
+					\begin{codebox}
+						\Procname{$\proc{Linear-Search}(A, v)$} 
+						\li	\For $i \gets 1$ \To $\attrib{A}{length}$
+							\Do
+						\li		\If $v \isequal A[i]$
+								\Then 
+						\li			\Return $i$
+								\End
+							\End
+					\li	\Return \const{nil}
+					\end{codebox}
+					\textbf{Loop invariant:} subarray $A[1 \twodots i-1]$ does not contain such element $A[i]$
+					that $A[i] \isequal v$.	\\
+					\textbf{Prove:}	\\
+					\textit{Initialization:} Piror to the first iteration of the loop, subarray $A[i \twodots i-1]$
+					contains no element, so it does not contain element whose value equals to $v$.	\\
+					\textit{Maintenance:} The for loop works by scanning the whole array element by element. At the
+					end of each scan, it either add an element whose value does not equal to $v$ to the subarray or
+					exit the program. So before the next iteration, the subarray does not contain the element that
+					equals to $v$.	\\
+					\textit{Termination:} The program terminates in two cases: find $A[i]$ that equals to $v$, or 
+					return $\const{nil}$, hence the algorithm is correct.
+				\subsection{2.1-4}
+					\textbf{Input:} Two $n$-element array $A$ and $B$ whose elements corresponding to two $n$-bit
+					binary integers bit by bit.	\\ 
+					\textbf{Output:} A $(n+1)$-element array $C$ whose elements corresponding to the sum of
+					$A$ and $B$.
+					\begin{codebox}
+						\Procname{$\proc{Binary-Addition}(A,B)$}
+						\li	$\id{carry} \gets 0$
+						\li	\For $i \gets \attrib{A}{length} \To 1$
+							\Do
+						\li		$C[i] = A[i] \mbox{ xor } B[i] \mbox{ xor } \id{carry}$
+						\li		\If $A[i]+B[i]+\id{carry}\ge2$		
+								\Then
+						\li			$\id{carry} \gets 1$
+						\li		\Else
+						\li			$\id{carry} \gets 0$		
+								\End
+							\End
+						\li	\If $A[i]+B[i]+\id{carry}\ge2$
+							\Then
+						\li		$C[i+1] \gets 1$
+						\li	\Else
+						\li		$C[i+1] \gets 0$
+							\End
+					\end{codebox}
+				\subsection{2.2-1}
+					$n^3/1000-100n^2-100n+3=\Theta(n^3)$
+				\subsection{2.2-2}
+					\begin{codebox}
+						\Procname{$\proc{Selection-Sort}(A)$}
+						\li	\For $i \gets 1 \To \attrib{A}{length}-1$
+							\Do
+						\li		$\id{smallest} \gets i$
+						\li		\For $j \gets i+1 \To \attrib{A}{length}$
+								\Do
+						\li			\If $A[j] < A[smallest]$
+									\Then
+						\li				$\id{smallest} \gets j$
+									\End
+								\End
+						\li		$\mbox{swap } A[i] \mbox{ and } A[smallest]$
+							\End
+					\end{codebox}
+					\textbf{Loop invariant:} Subarray $A[1 \twodots i-1]$ is sorted.\\
+					Since after each iteration of the outer for loop, the elements in the subarray $A[i+1 \twodots \attrib{A}{length}]$
+					are all greater or equal to $A[i]$, which, according to the loop invariant, is the largest element of subarray
+					$A[1 \twodots i]$, hence they also greater than every other element in that array. After run the algorithm for 
+					the first $n-1$ elements, the last element left must be the largest element, so the array is ordered.	\\
+					Best case is when the input array is already ordered.	\\
+					The inner for loop affects the running time most significantly, it gives the time complexity $\Theta(\sum_{i=1}^{n-1})=\Theta(n^2)$
+					for both best case and worest case running time.
+				\subsection{2.2-3}
+					Since the element being searched for is equally likely to be any element in the array, then the average elements being searched
+					will be: $1/n\sum_{i=1}^n i=(n+1)/2$, which also gives the time complexity of $\Theta(n)$	\\
+					Since all the elements will be scanned in the worest case, the time complexity is $\Theta(n)$
+				\subsection{2.2-4}
+					Modify the algorithm to test what we known as the best case, and solve it specifically.
+				\subsection{2.3-2}
+					Modify the last for loop as:
+					\begin{codebox}
+					\li	\For $k \gets p \To r$
+						\Do
+					\li		\If $i \isequal n_1+1$
+							\Then
+					\li			\For $m \gets j \To n_2$
+								\Do
+					\li				$A[k] = R[j]$	
+								\End
+					\li			\kw{break}
+							\End
+					\li		\If $j \isequal n_2+1$
+							\Then
+					\li			\For $m \gets i \To n_1$
+								\Do
+					\li				$A[k] = R[i]$	
+								\End
+					\li			\kw{break}
+							\End
+						\End
+					\end{codebox}
+				\subsection{2.3-3}
+					\textbf{Base case:} When $n=2$, $T(n)=n \lg n=2$. \\
+					\textbf{Induction:} Assume that when $n=2^k$, $T(2^k)=2^k \lg 2^k=k\cdot2^k$. When $n=2^{k+1}$, 
+					$T(2^{k+1})=2T(2^k)+2^{k+1}=2^{k+1} \lg 2^k + 2^{k+1}=(k+1)\cdot 2^{k+1}$, which is $2^{k+1}\lg 2^{k+1}$,
+					hence the solution of the recurrence is $n\lg n$.
+				\subsection{2.3-4}
+					Since it takes $\Theta(n)$ to insert an element into the right place, so the recurrence is:
+					\begin{displaymath}
+						T(n) = \left\{
+						\begin{array}{l l}
+							1	& \quad \text{if $n=1$,}\\
+							T(n-1) + n & \quad \text{otherwise}
+						\end{array}
+						\right.
+					\end{displaymath}
+				\subsection{2.3-5}
+					\begin{codebox}
+						\Procname{$\proc{Binary-Search}(A, m, n, t)$}
+					\li	\If $m-n \isequal 0$
+						\Then
+					\li		\If $t \isequal A[n]$
+							\Then
+					\li			\Return $n$
+					\li		\Else
+					\li			\Return \const{nil}
+							\End
+						\End
+					\li	$p \gets (m+n)/2$
+					\li \If $t \le A[p]$
+						\Then
+					\li		\Return $\proc{Binary-Search}(A,m,p,t)$
+					\li	\Else
+					\li		\Return $\proc{Binary-Search}(A,p+1,n,t)$
+						\End
+					\end{codebox}
+					On each recursion, the problem is divided into two subproblems of $1/2$ the size of the original problem, and
+					terminates when only one element left. Assume the total number of division is $k$, then $2^k=n$, so the time 
+					complexity is $\Theta(\lg n)$
+				\subsection{2.3-6}
+					The while loop searches backward for the proper place for the key element, meanwhile moves the elements that are
+					greater than the key element one position to the right. Even though binary search can improve the search time
+					to $\Theta(\lg n)$, it does not affect the time required to move the elements, so use binary search can not
+					improve the overall worest-case running time to $\Theta(n\lg n)$.
+				\subsection{2.3-7}
+					Incorporate the $\proc{Binary-Search}$ in exercise 2.3-5. The basic idea is to scan $S$, and use binary search 
+					to find out if there exists an element $S[j]$ in subarray $S[i+1\twodots \attrib{S}{length}]$ such that 
+					$S[i]+S[j]=x$.
+					\begin{codebox}
+						\Procname{$\proc{Addition-Search}$}
+						\li	\For $i \gets 1 \To \attrib{S}{length}$
+							\Do
+						\li		$m \gets S[i]$
+						\li		$n \gets x - m$
+						\li		\If $\proc{Binary-Search}(S, i+1, \attrib{S}{length}, n)$
+								\Then
+						\li			\Return $m, n$
+						\li		\Else
+						\li			\Return \const{nil}
+								\End
+							\End
+					\end{codebox}
+					
+\end{document}
