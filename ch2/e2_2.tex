@@ -1,32 +1,32 @@
 \subsection{2.2-1}
-	$n^3/1000-100n^2-100n+3=\Theta(n^3)$
+    $n^3/1000-100n^2-100n+3=\Theta(n^3)$
 \subsection{2.2-2}
-	\begin{codebox}
-		\Procname{$\proc{Selection-Sort}(A)$}
-		\li	\For $i \gets 1 \To \attrib{A}{length}-1$
-			\Do
-		\li		$\id{smallest} \gets i$
-		\li		\For $j \gets i+1 \To \attrib{A}{length}$
-				\Do
-		\li			\If $A[j] < A[smallest]$
-					\Then
-		\li				$\id{smallest} \gets j$
-					\End
-				\End
-		\li		$\mbox{swap } A[i] \mbox{ and } A[smallest]$
-			\End
-	\end{codebox}
-	\textbf{Loop invariant:} Subarray $A[1 \twodots i-1]$ is sorted.\\
-	Since after each iteration of the outer for loop, the elements in the subarray $A[i+1 \twodots \attrib{A}{length}]$
-	are all greater or equal to $A[i]$, which, according to the loop invariant, is the largest element of subarray
-	$A[1 \twodots i]$, hence they also greater than every other element in that array. After run the algorithm for 
-	the first $n-1$ elements, the last element left must be the largest element, so the array is ordered.	\\
-	Best case is when the input array is already ordered.	\\
-	The inner for loop affects the running time most significantly, it gives the time complexity $\Theta(\sum_{i=1}^{n-1})=\Theta(n^2)$
-	for both best case and worest case running time.
+    \begin{codebox}
+        \Procname{$\proc{Selection-Sort}(A)$}
+        \li \For $i \gets 1 \To \attrib{A}{length}-1$
+            \Do
+        \li     $\id{smallest} \gets i$
+        \li     \For $j \gets i+1 \To \attrib{A}{length}$
+                \Do
+        \li         \If $A[j] < A[smallest]$
+                    \Then
+        \li             $\id{smallest} \gets j$
+                    \End
+                \End
+        \li     $\mbox{swap } A[i] \mbox{ and } A[smallest]$
+            \End
+    \end{codebox}
+    \textbf{Loop invariant:} Subarray $A[1 \twodots i-1]$ is sorted.\\
+    Since after each iteration of the outer for loop, the elements in the subarray $A[i+1 \twodots \attrib{A}{length}]$
+    are all greater or equal to $A[i]$, which, according to the loop invariant, is the largest element of subarray
+    $A[1 \twodots i]$, hence they also greater than every other element in that array. After run the algorithm for 
+    the first $n-1$ elements, the last element left must be the largest element, so the array is ordered.   \\
+    Best case is when the input array is already ordered.   \\
+    The inner for loop affects the running time most significantly, it gives the time complexity $\Theta(\sum_{i=1}^{n-1})=\Theta(n^2)$
+    for both best case and worest case running time.
 \subsection{2.2-3}
-	Since the element being searched for is equally likely to be any element in the array, then the average elements being searched
-	will be: $1/n\sum_{i=1}^n i=(n+1)/2$, which also gives the time complexity of $\Theta(n)$	\\
-	Since all the elements will be scanned in the worest case, the time complexity is $\Theta(n)$
+    Since the element being searched for is equally likely to be any element in the array, then the average elements being searched
+    will be: $1/n\sum_{i=1}^n i=(n+1)/2$, which also gives the time complexity of $\Theta(n)$   \\
+    Since all the elements will be scanned in the worest case, the time complexity is $\Theta(n)$
 \subsection{2.2-4}
-	Modify the algorithm to test what we known as the best case, and solve it specifically.
+    Modify the algorithm to test what we known as the best case, and solve it specifically.
