@@ -13,30 +13,30 @@
 			\End
 		\end{codebox}
 		Since it has to perform $i-1$ mutiplication and
-		an addition at each iteration, the running time of 
+		an addition at each iteration, the running time of
 		$\proc{Poly-Eval}$ is:
 		\begin{displaymath}
 			\sum_{n=1}^{\attrib{A}{length}} i=\Theta(n^2)
 		\end{displaymath}
 		It is $n$ times slower than Horner's rule.
-	\item \textbf{Initialization:} Piror to the first 
+	\item \textbf{Initialization:} Piror to the first
 		iteration, $y=0$, and since a summation with
-		no terms equals to $0$, therefore the loop 
+		no terms equals to $0$, therefore the loop
 		invariant holds.
-		\textbf{Maintenance:} At the start of 
-		the iteration when $i$ reaches $t$, 
+		\textbf{Maintenance:} At the start of
+		the iteration when $i$ reaches $t$,
 		$y=\sum_{k=0}^{n-(t+1)}a_{k+t+1}x^k$.
-		Prior to $i$ reaches $t-1$, 
+		Prior to $i$ reaches $t-1$,
 		\begin{align*}
 			y&= a_tx^0+x\sum_{k=0}^{n-(t+1)}a_{k+t+1}x^k\\
 			 &= a_tx^0+\sum_{k=1}^{n-t}a_{k+t}x^k\\
 			 &= \sum_{k=0}^{n-t}a_{k+t}x^k
 		\end{align*}
 		which is the same as
-		$\sum_{k=0}^{n-(i+1)}a_{k+i+1}x^k$, 
+		$\sum_{k=0}^{n-(i+1)}a_{k+i+1}x^k$,
 		hence the loop invariant holds.\\
-		\textbf{Termination:} $i$ reaches $-1$ when the loop terminates. 
+		\textbf{Termination:} $i$ reaches $-1$ when the loop terminates.
 		Plug $i=-1$ into the equation, yield
 		$y=\sum_{k=0}^{n}a_kx^k$.
-	\item 
+	\item
 \end{enumerate}

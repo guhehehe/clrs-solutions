@@ -27,19 +27,21 @@
     \end{codebox}
     \textbf{Loop invariant:} subarray $A[1 \twodots i-1]$ does not contain such
     element $A[i]$ that $A[i] \isequal v$. \\
-    \textbf{Initialization:} Piror to the first iteration of the loop, subarray $A[i \twodots i-1]$
-    contains no element, so it does not contain element whose value equals to $v$.  \\
-    \textbf{Maintenance:} The for loop works by scanning the whole array element by element. At the
-    end of each scan, it either add an element whose value does not equal to $v$ to the subarray or
-    exit the program. So before the next iteration, the subarray does not contain the element that
-    equals to $v$.  \\
-    \textbf{Termination:} The program terminates in two cases: find $A[i]$ that equals to $v$, or
-    return $\const{nil}$, hence the algorithm is correct.
+    \textbf{Initialization:} Piror to the first iteration of the loop, subarray
+    $A[i \twodots i-1]$ contains no element, so it does not contain element
+    whose value equals to $v$. \\
+    \textbf{Maintenance:} The for loop works by scanning the whole array element
+    by element. At the end of each scan, it either add an element whose value
+    does not equal to $v$ to the subarray or exit the program. So before the
+    next iteration, the subarray does not contain the element that equals to
+    $v$. \\
+    \textbf{Termination:} The program terminates in two cases: find $A[i]$
+    that equals to $v$, or return $\const{nil}$, hence the algorithm is correct.
 \subsection{2.1-4}
-    \textbf{Input:} Two $n$-element array $A$ and $B$ whose elements corresponding to two $n$-bit
-    binary integers bit by bit. \\
-    \textbf{Output:} A $(n+1)$-element array $C$ whose elements corresponding to the sum of
-    $A$ and $B$.
+    \textbf{Input:} Two $n$-element array $A$ and $B$ whose elements
+    corresponding to two $n$-bit binary integers bit by bit. \\
+    \textbf{Output:} A $(n+1)$-element array $C$ whose elements corresponding
+    to the sum of $A$ and $B$.
     \begin{codebox}
         \Procname{$\proc{Binary-Addition}(A,B)$}
         \li $\id{carry} \gets 0$

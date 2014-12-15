@@ -3,17 +3,18 @@
 \begin{enumerate}[leftmargin=*]
 	\item Selection sort take $\Theta(k^2)$ to sort all $k$ elements in each sublist,
 		hence the cost of $n/k$ sublists will be $nk$.
-	\item Since we start merging when we split up to $n/k$ sublists, the depth of the
-		recursion tree is $\lg(n/k)$. Moreover, we merge $n$ elements at each level of
-		the tree, hence the worst case running time is $\Theta(n\lg(n/k))$
+	\item Since we start merging when we split up to $n/k$ sublists, the depth
+        of the recursion tree is $\lg(n/k)$. Moreover, we merge $n$ elements
+        at each level of the tree, hence the worst case running time is
+        $\Theta(n\lg(n/k))$
 	\item Notice that the largest asymptotic value of $k$ is $k=\lg n$, because
 		otherwise there would be higher order term in $\Theta(nk+n\lg(n/k))$
 		than $\Theta(n\lg n)$. Replace $k$ with $\lg n$ in the worst case
-		running time of our modified merge sort algorithm, yields 
+		running time of our modified merge sort algorithm, yields
 		$\Theta(n\lg n + n\lg\lg(n/k))$, which, just consider the
 		higher order term, equals to the worst case running time
-		of merge sort in terms of $\Theta$ notation. Therefore, 
+		of merge sort in terms of $\Theta$ notation. Therefore,
 		the largest value of $k$ is $\lg n$.
-	\item $k$ should be the largest sublist length so that 
-		selection sort outperforms merge sort. 
+	\item $k$ should be the largest sublist length so that
+		selection sort outperforms merge sort.
 \end{enumerate}

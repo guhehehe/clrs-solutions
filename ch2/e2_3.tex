@@ -23,11 +23,14 @@
     \end{codebox}
 \subsection{2.3-3}
     \textbf{Base case:} When $n=2$, $T(n)=n \lg n=2$. \\
-    \textbf{Induction:} Assume that when $n=2^k$, $T(2^k)=2^k \lg 2^k=k\cdot2^k$. When $n=2^{k+1}$,
-    $T(2^{k+1})=2T(2^k)+2^{k+1}=2^{k+1} \lg 2^k + 2^{k+1}=(k+1)\cdot 2^{k+1}$, which is $2^{k+1}\lg 2^{k+1}$,
-    hence the solution of the recurrence is $n\lg n$.
+    \textbf{Induction:} Assume that when
+    $n=2^k$, $T(2^k)=2^k \lg 2^k=k\cdot2^k$. When $n=2^{k+1}$,
+    $T(2^{k+1})=2T(2^k)+2^{k+1}=2^{k+1} \lg 2^k + 2^{k+1}=(k+1)\cdot 2^{k+1}$,
+    which is $2^{k+1}\lg 2^{k+1}$, hence the solution of the recurrence is
+    $n\lg n$.
 \subsection{2.3-4}
-    Since it takes $\Theta(n)$ to insert an element into the right place, so the recurrence is:
+    Since it takes $\Theta(n)$ to insert an element into the right place, so
+    the recurrence is:
     \begin{displaymath}
         T(n) = \left\{
         \begin{array}{l l}
@@ -56,21 +59,26 @@
     \li     \Return $\proc{Binary-Search}(A,p+1,n,t)$
         \End
     \end{codebox}
-    On each recursion, the problem is divided into two subproblems of $1/2$ the size of the original problem, and
-    terminates when only one element left. Assume the total number of division is $k$, then $2^k=n$, so the time
+    On each recursion, the problem is divided into two subproblems of $1/2$ the
+    size of the original problem, and terminates when only one element left.
+    Assume the total number of division is $k$, then $2^k=n$, so the time
     complexity is $\Theta(\lg n)$
 \subsection{2.3-6}
-    The while loop searches backward for the proper place for the key element, meanwhile moves the elements that are
-    greater than the key element one position to the right. Even though binary search can improve the search time
-    to $\Theta(\lg n)$, it does not affect the time required to move the elements, so use binary search can not
-    improve the overall worest-case running time to $\Theta(n\lg n)$.
+    The while loop searches backward for the proper place for the key element,
+    meanwhile moves the elements that are greater than the key element one
+    position to the right. Even though binary search can improve the search time
+    to $\Theta(\lg n)$, it does not affect the time required to move the
+    elements, so use binary search can not improve the overall worest-case
+    running time to $\Theta(n\lg n)$.
 \subsection{2.3-7}
-    We can incorporate $\proc{Merge-Sort}$ and $\proc{Binary-Search}$ in exercise 2.3-5 into out $\proc{Addition-Search}$.
-    The basic idea is using merge sort sorting $S$,
-    scan $S$, then use binary search to find out if there exists an element $S[j]$ in subarray
-    $S[i+1\twodots \attrib{S}{length}]$ such that
-    $S[i]+S[j]=x$. Since merge sort take $\Theta(n\lg n)$ and binary search take $\Theta(n\lg n)$ for iterating
-    the entire array, so the time complexity of $\proc{Addition-Search}$ is $\Theta(n\lg n)$.
+    We can incorporate $\proc{Merge-Sort}$ and $\proc{Binary-Search}$ in
+    exercise 2.3-5 into out $\proc{Addition-Search}$. The basic idea is using
+    merge sort sorting $S$, scan $S$, then use binary search to find out if
+    there exists an element $S[j]$ in subarray $S[i+1\twodots
+    \attrib{S}{length}]$
+    such that $S[i]+S[j]=x$. Since merge sort take $\Theta(n\lg n)$ and binary
+    search take $\Theta(n\lg n)$ for iterating the entire array, so the time
+    complexity of $\proc{Addition-Search}$ is $\Theta(n\lg n)$.
     \begin{codebox}
         \Procname{$\proc{Addition-Search}(S)$}
         \li $\proc{Merge-Sort}(S, 1, \attrib{S}{length})$

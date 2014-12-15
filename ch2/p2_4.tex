@@ -2,7 +2,7 @@
 \begin{enumerate}[leftmargin=*]
 	\item $(1,5)$, $(2,5)$, $(3,4)$, $(3,5)$, $(4,5)$.
 	\item Array $[n\twodots 1]$ has the most inversions,
-		since for each $i<j$, $A[i]>A[j]$. It has 
+		since for each $i<j$, $A[i]>A[j]$. It has
 	$\sum_{k=1}^{n-1}(n-k)=n^2/2$ inversions.
 	\item The running time is in proportion to the
 		amount of inversions in the array. Since in the
@@ -15,37 +15,37 @@
 		time of insertion sort, the more the inversions,
 		the longer the running time, vice versa.
 	\item (In reference to clrs instructor's manual)\\
-		To start off, we define a subroutine called 
+		To start off, we define a subroutine called
 		$\proc{Merge-Inversions}$ that has value $x$
-		in $L$ and $y$ in $R$ such that $x>y$, and, 
+		in $L$ and $y$ in $R$ such that $x>y$, and,
 		like the
 		$\proc{Merge}$ procedure in merge sort, but
 		count the amount of inversions at the same
-		time. Consider an inversion $(i,j)$, and 
-		$x=A[i]$, $y=A[j]$, such that $x>y$, 
-		we claim that there is 
+		time. Consider an inversion $(i,j)$, and
+		$x=A[i]$, $y=A[j]$, such that $x>y$,
+		we claim that there is
 		exactly one $\proc{Merge-Inversions}$ that
 		involves $x$ and $y$. To see why, notice that
 		since $L$ and $R$ are sorted subarrays, the
 		only way that two elements can change their
 		relative position to each other is for the
 		greater one in $L$ and the smaller one in
-		$R$ within the $\proc{Merge-Inversions}$, hence 
-		at least one $Merge-Inversions$ involving 
+		$R$ within the $\proc{Merge-Inversions}$, hence
+		at least one $Merge-Inversions$ involving
 		$x$ and $y$. Moreover, observe that at the
 		end of $\proc{Merge-Inversions}$, the elements in
 		$L$ and $R$ are stored into another subarray
-		either $L$ or $R$ in an ordered manner, 
+		either $L$ or $R$ in an ordered manner,
 		therefore $x$ and $y$ both appear in the same
 		subarray in the right order, thus
 		there is only one $\proc{Merge-Inversions}$ involving
 		$x$ and $y$, our claim has been proven.\\
-		We have proven that one inversion implies 
+		We have proven that one inversion implies
 		one $\proc{Merge-Inversions}$, now we prove
 		that the claim still holds reversely. Observe
-		that since we have a $\proc{Merge-Inversions}$, 
+		that since we have a $\proc{Merge-Inversions}$,
 		we have $x$ and $y$ such that $x>y$. Notice
-		that either $L$ or $R$ are ordered, and $x$ 
+		that either $L$ or $R$ are ordered, and $x$
 		in $L$ and $y$ in $R$, therefore $i<j$, thus
 		$(i,j)$ is an inversion.\\
 		We have proven one-to-one relationship between
@@ -53,12 +53,12 @@
 		we count the inversions. Notice that if there
 		exists an inversion $(i,j)$, there must be
 		an $x$ that is greater than $y$ at some point
-		of time. Moreover, since the subarray is ordered, 
+		of time. Moreover, since the subarray is ordered,
 		all the elements with index greater than $i$ are
 		also greater than $y$, hence they are all
 		values that compose inversions with $y$. Let
 		us denote $i'$ the index of the smallest element
-		$z$ in $L$ that is greater than $y$, thus the 
+		$z$ in $L$ that is greater than $y$, thus the
 		number of inversions involving $y$ would be
 		$n_1-i'+1$. We need to detect the first time
 		such an $z$ and $y$ are exposed, and compute
@@ -101,13 +101,13 @@
 		\li \For $k\gets p\To r$
 			\Do
 		\li		\If $\id{counted}\gets \const{false}$
-		%		\text{ and } R[j]<L[i]$ 
+		%		\text{ and } R[j]<L[i]$
 				\Then
 		\li			$\id{inversions}\gets\id{inversions}
 					+n_1-i+1$
 		\li			$\id{counted}\gets \const{true}$
 				\End
-		\li		\If $L[i]\le R[j]$ 
+		\li		\If $L[i]\le R[j]$
 				\Then
 		\li			$A[k]\gets L[i]$
 		\li			$i\gets i+1$
@@ -121,7 +121,7 @@
 		\end{codebox}
 		On lines 14-16, we count the number of
 		inversions upon each time $z$ and $y$ are
-		exposed, this is a linear time operation, 
-		thus the running time of the algorithm above 
+		exposed, this is a linear time operation,
+		thus the running time of the algorithm above
 		is the same as merge sort, which is $\Theta(n\lg n)$.
 \end{enumerate}

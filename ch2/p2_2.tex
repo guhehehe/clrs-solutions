@@ -1,10 +1,10 @@
 \subsection{2-2}
 %\begin{enumerate}[itemsep=0.5em, align=right, leftmargin=2.5em]
 \begin{enumerate}[leftmargin=*]
-	\item We need to show that the elements in $A'$ forms a permutation 
+	\item We need to show that the elements in $A'$ forms a permutation
 		of the elements in $A$.
 	\item \textbf{Loop invariant:} $A[j]=min{A[j\twodots \attrib{A}{length}]}$
-		and the subarray $A[j\twodots \attrib{A}{length}]$ is 
+		and the subarray $A[j\twodots \attrib{A}{length}]$ is
 		a permutation of the elements in $A[j\twodots \attrib
 		{A}{length}]$ at the time when the loop started.\\
 		\textbf{Initialization:} On initialization, subarray
@@ -15,16 +15,16 @@
 		$A[j]<A[j-1]$. Since $A[j]$ is the smallest element
 		in $A[j\twodots \attrib{A}{length}]$, if the exchange
 		happens, $A[j-1]$ would become the smallest element
-		in $A[j-1\twodots \attrib{A}{length}]$. Meanwhile, 
+		in $A[j-1\twodots \attrib{A}{length}]$. Meanwhile,
 		since subarray $A[j\twodots \attrib{A}{length}]$
-		is a permutation of the elements in 
+		is a permutation of the elements in
 		$A[j\twodots \attrib{A}{length}]$ at the time the
 		loop started, after exchanging $A[j]$ and $A[j-1]$,
-		$A[j-1\twodots \attrib{A}{length}]$ is still a 
+		$A[j-1\twodots \attrib{A}{length}]$ is still a
 		permutation of the elements that were in $A[j-1\twodots]$
 		at the time the loop started.\\
-		\textbf{Termination:} Since $j$ decreases by $1$ 
-		after each iteration, the condition that causes 
+		\textbf{Termination:} Since $j$ decreases by $1$
+		after each iteration, the condition that causes
 		the loop terminate is $j=i$. By the state of the
 		loop invariant, $A[i]=min{A[i\twodots \attrib
 		{A}{length}]}$, and subarray
@@ -35,17 +35,17 @@
 		contains $i-1$ smallest elements come from
 		array $A[1\twodots \attrib{A}{length}]$ and in
 		ordered manner.\\
-		\textbf{Initialization:} Piror to the first 
-		iteration of the outer \textbf{for} loop, 
+		\textbf{Initialization:} Piror to the first
+		iteration of the outer \textbf{for} loop,
 		$i=1$, so there is no element in $A'[1\twodots i-1]$,
 		the loop invariant holds.\\
 		\textbf{Maintenance:} Since $A'[1\twodots i-1]$
-		is the $i-1$ smallest elements from 
+		is the $i-1$ smallest elements from
 		$A[1\twodots \attrib{A}{length}]$, after the
 		execution of the inner \textbf{for} loop, which
 		makes $A'[i]$ the smallest element of subarray
 		$A[i\twodots \attrib[A][length]]$, and the values
-		in the subarray all come from $A[1\twodots 
+		in the subarray all come from $A[1\twodots
 		\attrib{A}{length}]$, hence subarray
 		$A'[1\twodots i]$ contains the $i$ smallest elements
 		in $A[1\twodots \attrib{A}{length}]$.\\
@@ -66,6 +66,6 @@
 			(n-i+1)=\frac{n^2}{2}
 			=\Theta(n^2)
 		\end{displaymath}
-		It is the same as the worest case running time of 
+		It is the same as the worest case running time of
 		insertion sort.
 \end{enumerate}
