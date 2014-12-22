@@ -1,0 +1,86 @@
+\subsection{3.1-1}
+    To prove $\max(af(n),g(n))=\Theta(f(n)+g(n))$, that means we need to prove
+    that for some $c_1$, $c_2$, and $n_0$ such that $0\le c_1(f(n)+g(n))\le
+    \max(f(n),g(n))\le c_2(f(n)+g(n))$ for all $n\ge n_0$. By choosing
+    $c_2=1$, we can easily see that the right condition is satisfied. The left
+    condition can be satisfied when we choose $c_1$ to be $1/2$.
+\subsection{3.1-2}
+    To prove the equation, we have to show that there exist positive constants
+    $c_1$, $c_2$ and $n_0$ such that $0\le c_1n^b\le (n+a)^b\le c_2n^b$ for
+    any real constant $a$ and $b>0$, and $n\ge n_0$. This can be written as
+    $0\le \sqrt[b]{c_1}n\le n+a\le \sqrt[b]{c_2}n$. Let us examine 3 cases
+    below: \\
+    $a>0$: We can easily verify that the left condition
+    satisfies when taking $c_1\le1$ for all $n$. 
+    For the right condition, by examining the graph
+    of the two function $f(n)=n+a$  and $g(n)
+    =\sqrt[b]{c_2}n$, we know that when the gradient
+    of $g(n)$ is greater than $1$, there must
+    be some $n_0$ that makes $g(n)\le f(n)$ for 
+    $n\ge n_0$. Therefore $\sqrt[b]{c_2}$ should
+    be greater than or equal to $1$, which makes 
+    $c_2>1$.\\
+    $a<0$: Similar to $a>0$, we can conclude that
+    $c_1<1$ and $c_2\ge1$.\\
+    $a=0$: The inequation satisfies when taking
+    $c_1\le1$ and $c_2\ge1$.\\
+    In conclusion, when taking $c_1<1$ and $c_2
+    >1$, there must be a $n_0$ such that the 
+    inequation satisfies when $n\ge n_0$ for any
+    real constant  $a$ and $b$,
+\subsection{3.1-3}
+    The big O notation set a upper bound of the 
+    running time of an algorithm, it means the 
+    running time of an algorithm is no worse than
+    $n^2$. "At least" in the statement indicates
+    that there exists any worse case, therefore
+    it is meaningless.
+\subsection{3.1-4}
+    $2^{n+1}=O(2^n)$. To see why, we have to prove
+    that there eixsts a positive constant nubmer $c$
+    and $n_0$ such that $0\le 2^{n+1}\le c2^n$ for
+    all $n\ge n_0$. Dividing both sides
+    of the inequation by $2^n$, yields $0\le
+    2\le c$, therefore any $c\ge2$ satisfies the 
+    equation.\\
+    $2^{2n}\ne O(2^n)$. To see why, we have to 
+    prove that the inequation $0\le 2^{2n}\le 
+    2^n$ does not hold. Dividing both sides of the
+    inequation yeilds $0\le 2^n\le c$, $2^n$ is a
+    monotonically increasing function, therefore
+    we cannot find a constant that satisfies
+    $2^n\le c$.
+\subsection{3.1-5}
+    By definition, $f(n)=\Theta(g(n))$ implies
+    there exists positive contants $c_1$, $c_2$
+    and $n_0$ such that $0\le c_1g(n)\le f(n)\le
+    c_2g(n)$ for all $n\ge n_0$. 
+    Notice that the left part and right
+    part of the inequation are the definitions of
+    $\Omega$ and $O$ respectively, hence the
+    necessity has been proven.\\
+    If $f(n)=\Omega(g(n))$ and $f(n)=O(g(n))$,
+    that means there exists positive contants
+    $c_1$, $c_2$ $n_1$ and $n_2$ such that
+    $0\le c_1g(n)\le f(n)$ for all $n\ge n_1$ and
+    $0\le f(n)\le c_2g(n)$ for all $n\ge n_2$.
+    Combining these two inequations, we have
+    there exists positive constants $c_1$, $c_2$,
+    $n_1$ and $n_2$ such that $0\le c_1g(n)\le 
+    f(n)\le c_2g(n)$ for all $n\ge\max{(n_1, n_2)}$.
+    Hence we have proven the sufficiency.
+\subsection{3.1-6}
+    Assume the running time of the algorithm is
+    $f(n)$, so $f(n)=\Theta(g(n))$, according to
+    Theorem 3.1, the assumption can be proved.
+\subsection{3.1-7}
+    By definition of $o$, for any positive constant $c$, 
+    there exists $n_0>0$ such that $0\le f(n)<cg(n)$
+    for all $n\ge n_0$;
+    and by definition of $\omega$, 
+    for any positive constant $c$, 
+    there exists $n_0>0$ such that $0\le cg(n)<f(n)$
+    for all $n\ge n_0$. However, $f(n)$ cannot
+    be greater than $cg(n)$ and less than $cg(n)$ at
+    the meantime, hence this is a contradiction.
+    Therefore $o(g(n))\cap \omega(g(n))$ is empty.
