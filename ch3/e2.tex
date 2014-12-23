@@ -1,97 +1,89 @@
 \subsection{3.2-1}
-	$f(n)$ and $g(n)$ are monotonically increasing 
-	means that if $n_1\ge n_2$, then $f(n_1)\ge
-	f(n_2)$ and $g(n_1)\ge g(n_2)$. Observe that
-	$f(n_1)+g(n_1)$ also greater than or equal to
-	$f(n_2)+g(n_2)$, therefore $f(n)+g(n)$ is
-	monotonically increasing.\\
-	Also notice that since $g(n_1)\ge g(n_2)$,
-	and $f(n)$ is monotonically increasing, so
-	$f(g(n_1))\ge f(g(n_2))$, consequently, 
-	$f(g(n))$ is also monotonically increasing.\\
-	Since $f(n_1)\ge f(n_2)$, 
-	also because $f(n)$ and $g(n)$ are nonnegative, 
-	then $f(n_1)\cdot g(n_1)\ge f(n_2)\cdot g(n_1)$. 
-	Moreover,
-	$g(n_1)\ge g(n_2)$, therefore $f(n_1)\cdot g(n_1)
-	\ge f(n_2)\cdot g(n_2)$, hence $f(n)\cdot g(n)$
-	is monotonically increasing.
+    $f(n)$ and $g(n)$ are monotonically increasing means that if $n_1\ge n_2$,
+    then $f(n_1)\ge f(n_2)$ and $g(n_1)\ge g(n_2)$. Observe that
+    $f(n_1)+g(n_1)$ also greater than or equal to $f(n_2)+g(n_2)$, therefore
+    $f(n)+g(n)$ is monotonically increasing. \\
+    Also notice that since $g(n_1)\ge g(n_2)$, and $f(n)$ is monotonically
+    increasing, so $f(g(n_1)) \ge f(g(n_2))$, consequently, $f(g(n))$ is also
+    monotonically increasing. \\
+    Since $f(n_1)\ge f(n_2)$, also because $f(n)$ and $g(n)$ are nonnegative,
+    then $f(n_1)\cdot g(n_1)\ge f(n_2)\cdot g(n_1)$.  Moreover,
+    $g(n_1)\ge g(n_2)$, therefore $f(n_1)\cdot g(n_1) \ge f(n_2)\cdot g(n_2)$,
+    hence $f(n)\cdot g(n)$ is monotonically increasing.
 \subsection{3.2-2}
-	\begin{align*}
-		a^{\log_b{c}} &= a^{\frac{\log_a{c}}{\log_a{b}}}\\
-					  &= a^{\log_a{c}\log_b{a}}\\
-					  &= c^{\log_b{a}}
-	\end{align*}
+    \begin{align*}
+        a^{\log_b{c}} &= a^{\frac{\log_a{c}}{\log_a{b}}}\\
+                      &= a^{\log_a{c}\log_b{a}}\\
+                      &= c^{\log_b{a}}
+    \end{align*}
 \subsection{3.2-3}
-	%To prove $\lg(n!)=\Theta(n\lg n)$, we have to
-	%show that there exist positive constants $c_1$,
-	%$c_2$ and $n_0$ such that $0\le c_1n\lg n\le 
-	%\lg(n!)\le c_2n\lg n$ for all $n\ge n_0$.\\
-	%For the left part of the inequation, according
-	%to Theorem 3.18 we know
-	%$\lg(n!)=\lg\sqrt{2\pi n}+n\lg(n/e)+\lg(1+
-	%\Theta(1/n))$, hence
-	%$c_1=1/e$ satisfy the left part of the inequation
-	%for all $n\ge 0$.\\
-	%For the right part  of the inequation, we know
-	%$c_2n\lg n=\lg n^{c_2n}$, moreover, since $\lg n$
-	%is strictly increasing and $n!\le n^n$, therefore
-	%$c_2=1$ can satisfy the right part of the 
-	%inequation for all $n\ge 0$.\\
-	Since $n!=\sqrt{2\pi}n^{n+1/2}e^{-n}$,
-	\begin{align*}
-		\lg (n!)	&\approx	n\lg n - n + \frac{1}{2}
-		\lg(2\pi n)	\\
-				&=(n+\frac{1}{2})\lg n -n + \frac
-				{1}{2}\lg(2\pi)	\\
-				&\approx n\lg n -n	\\
-				&=	\Theta(n\lg n)
-	\end{align*}
-	Since $n!/n^n=(n-1)!/n^{n-1}\ldots (n-(n-1))!/
-	n^{n-(n-1)}=1/n$, so $\lim_{n\to \infty}n!/n^n=0$,
-	which means $n!=o(n^n)$.\\
-	We can easily verify that when $n\ge4$, $0\le c2^n
-	\le n!$ for any positive constant $c$, hence 
-	$n!=\omega(2^n)$.
+    % To prove $\lg(n!)=\Theta(n\lg n)$, we have to
+    % show that there exist positive constants $c_1$,
+    % $c_2$ and $n_0$ such that $0\le c_1n\lg n\le
+    % \lg(n!)\le c_2n\lg n$ for all $n\ge n_0$.\\
+    % For the left part of the inequation, according
+    % to Theorem 3.18 we know
+    % $\lg(n!)=\lg\sqrt{2\pi n}+n\lg(n/e)+\lg(1+
+    % \Theta(1/n))$, hence
+    % $c_1=1/e$ satisfy the left part of the inequation
+    % for all $n\ge 0$.\\
+    % For the right part  of the inequation, we know
+    % $c_2n\lg n=\lg n^{c_2n}$, moreover, since $\lg n$
+    % is strictly increasing and $n!\le n^n$, therefore
+    % $c_2=1$ can satisfy the right part of the
+    % inequation for all $n\ge 0$.\\
+    Since $n!=\sqrt{2\pi}n^{n+1/2}e^{-n}$,
+    \begin{align*}
+        \lg (n!)    &\approx    n\lg n - n + \frac{1}{2}
+        \lg(2\pi n) \\
+                &=(n+\frac{1}{2})\lg n -n + \frac
+                {1}{2}\lg(2\pi) \\
+                &\approx n\lg n -n  \\
+                &=  \Theta(n\lg n)
+    \end{align*}
+    Since $n!/n^n=(n-1)!/n^{n-1}\ldots (n-(n-1))!/
+    n^{n-(n-1)}=1/n$, so $\lim_{n\to \infty}n!/n^n=0$,
+    which means $n!=o(n^n)$. \\
+    We can easily verify that when $n\ge4$, $0\le c2^n \le n!$ for any
+    positive constant $c$, hence $n!=\omega(2^n)$.
 \subsection{3.2-4}
 \subsection{3.2-5}
 \subsection{3.2-6}
-	Substitute the golden ratio and its conjugate in
-	the equation, which shows they both satisfies the
-	equation.
+    Substitute the golden ratio and its conjugate in the equation, which shows
+    they both satisfies the equation.
 \subsection{3.2-7}
-	When $i=0$, 
-	\begin{align*}
-		F_i &= \frac{\phi^0-\hat{\phi^0}}{\sqrt{5}}\\
-			&= 0
-	\end{align*}
-	When $i=1$, 
-	\begin{align*}
-		F_i &= \frac{\phi^1-\hat{\phi}^1}{\sqrt{5}}\\
-			&= 1
-	\end{align*}
-	Assume that when $i=k-1$,
-	\begin{align*}
-		F_i &= \frac{\phi^{k-1}-\hat{\phi}^{k-1}}{\sqrt{5}}
-	\end{align*}
-	and when $i=k$, 
-	\begin{align*}
-		F_i &= \frac{\phi^{k}-\hat{\phi}^k}{\sqrt{5}}
-	\end{align*}
-	therefore, when $i=k+1$,
-	\begin{flalign*}
-		F_i &= F_k+F_{k-1} \\
-			&= \frac{\phi^i-\hat{\phi}^i}{\sqrt{5}} +
-				\frac{\phi^{i-1}-\hat{\phi}^{i-1}}{\sqrt{5}} \\
-			&= \frac{\phi^{i-1}(\phi+1)-\hat{\phi}^{i-1}(\hat{\phi}+1)}{\sqrt{5}}\\
-			&= \frac{\phi^{i-1}(\phi-\phi\hat{\phi})-\hat{\phi}^{i-1}(\hat{\phi}-\phi\hat{\phi})}{\sqrt{5}}
-			&&\mbox{Since }\phi\hat{\phi}=-1\\
-			&= \frac{\phi^i(1-\hat{\phi})-\hat{\phi}^i(1-\phi)}{\sqrt{5}}\\
-			&= \frac{\phi^{i+1}-\hat{\phi}^{i+1}}{\sqrt{5}}
-			&&\mbox{Since }\phi+\hat{\phi}=1\\
-	\end{flalign*}
-	In conclusion, 
-	\begin{align*}
-		F_i &= \frac{\phi^i-\hat{\phi}^i}{\sqrt{5}}
-	\end{align*}
+    When $i=0$,
+    \begin{align*}
+        F_i &= \frac{\phi^0-\hat{\phi^0}}{\sqrt{5}}\\
+            &= 0
+    \end{align*}
+    When $i=1$,
+    \begin{align*}
+        F_i &= \frac{\phi^1-\hat{\phi}^1}{\sqrt{5}}\\
+            &= 1
+    \end{align*}
+    Assume that when $i=k-1$,
+    \begin{align*}
+        F_i &= \frac{\phi^{k-1}-\hat{\phi}^{k-1}}{\sqrt{5}}
+    \end{align*}
+    and when $i=k$,
+    \begin{align*}
+        F_i &= \frac{\phi^{k}-\hat{\phi}^k}{\sqrt{5}}
+    \end{align*}
+    therefore, when $i=k+1$,
+    \begin{flalign*}
+        F_i &= F_k+F_{k-1} \\
+            &= \frac{\phi^i-\hat{\phi}^i}{\sqrt{5}} +
+                \frac{\phi^{i-1}-\hat{\phi}^{i-1}}{\sqrt{5}} \\
+            &= \frac{\phi^{i-1}(\phi+1)-\hat{\phi}^{i-1}(\hat{\phi}+1)}{\sqrt{5}}\\
+            &= \frac{\phi^{i-1}(\phi-\phi\hat{\phi})-\hat{\phi}^{i-1}(\hat{\phi}-\phi\hat{\phi})}{\sqrt{5}}
+            &&\mbox{Since }\phi\hat{\phi}=-1\\
+            &= \frac{\phi^i(1-\hat{\phi})-\hat{\phi}^i(1-\phi)}{\sqrt{5}}\\
+            &= \frac{\phi^{i+1}-\hat{\phi}^{i+1}}{\sqrt{5}}
+            &&\mbox{Since }\phi+\hat{\phi}=1\\
+    \end{flalign*}
+    In conclusion,
+    \begin{align*}
+        F_i &= \frac{\phi^i-\hat{\phi}^i}{\sqrt{5}}
+    \end{align*}
 \subsection{3.2-8}
