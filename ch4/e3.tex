@@ -1,6 +1,6 @@
 \subsection{4.3-1}
     Assuming that the solution of $T(n) = T(n-1) + n$ is $O(n^2)$, so for some
-    positive constant $c$ and $n > n_0$, we have:
+    positive constant $c$ and $n \ge n_0$, we have:
     \begin{align*}
         T(n) & \le c(n - 1)^2 + n \\
              & = cn^2 - (2c + 1 )n + c \\
@@ -9,7 +9,7 @@
     where the last step holds as long as $c \ge 1$.
 \subsection{4.3-2}
     Assuming that the solution of $T(n) = T(\ceil{n/2}) + 1$ is $O(n\lg n)$,
-    so for some positive constant $c$ and $n > n_0$, we have:
+    so for some positive constant $c$ and $n \ge n_0$, we have:
     \begin{align*}
         T(n) & \le \frac{cn\lg(n/2)}{2} + 1 \\
              & = \frac{cn(\lg n - 1)}{2} + 1 \\
@@ -17,3 +17,19 @@
              & \le cn\lg n
     \end{align*}
     where the last step holds as long as $c \ge 2$.
+\subsection{4.3-3}
+    Assuming that the solution of $T(n) = 2T(\floor{n/2}) + n$ is
+    $\Omega(n\lg n)$, so for some positive constant $c$ and $n \ge n_0$, we have:
+    \begin{align*}
+        T(n) & \ge cn\lg(n/2) + n \\
+             & = cn\lg n - cn + n \\
+             & = cn\lg n + n(1-c) \\
+             & \ge cn\lg n
+    \end{align*}
+    where the last step holds as long as $c \le 1$.
+\subsection{4.3-3}
+    By gussing the solution to be $O(n\lg n + 1)$, we can show that $T(n) \le
+    cn\lg n - cn + n + 2 \le cn\lg n + 1$ as long as $c \ge 1 + 1/n$
+    ($1 + 1/n \le 2$), and the boundary condition $T(1) = 1$ holds. Hence
+    the solution for the recurence in (4.19) is $O(n\lg g + 1)$, which is
+    equivalent to $O(n\lg n)$.
