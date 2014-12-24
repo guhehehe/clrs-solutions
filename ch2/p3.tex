@@ -20,8 +20,7 @@
         It is $n$ times slower than Horner's rule.
     \item \textbf{Initialization:} Piror to the first iteration, $y=0$, and
         since a summation with no terms equals to $0$, therefore the loop
-        invariant holds.
-
+        invariant holds. \\
         \textbf{Maintenance:} At the start of the iteration when $i$ reaches $t$,
         $y=\sum_{k=0}^{n-(t+1)}a_{k+t+1}x^k$. Prior to $i$ reaches $t-1$,
         \begin{align*}
@@ -31,7 +30,6 @@
         \end{align*}
         which is the same as $\sum_{k=0}^{n-(i+1)}a_{k+i+1}x^k$, hence the
         loop invariant holds.\\
-
         \textbf{Termination:} $i$ reaches $-1$ when the loop terminates.
         Plug $i=-1$ into the equation, yield $y=\sum_{k=0}^{n}a_kx^k$.
     \item
