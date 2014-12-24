@@ -1,0 +1,19 @@
+\subsection{4.3-1}
+    Assuming that the solution of $T(n) = T(n-1) + n$ is $O(n^2)$, so for some
+    positive constant $c$ and $n > n_0$, we have:
+    \begin{align*}
+        T(n) & \le c(n - 1)^2 + n \\
+             & = cn^2 - (2c + 1 )n + c \\
+             & \le cn^2
+    \end{align*}
+    where the last step holds as long as $c \ge 1$.
+\subsection{4.3-2}
+    Assuming that the solution of $T(n) = T(\ceil{n/2}) + 1$ is $O(n\lg n)$,
+    so for some positive constant $c$ and $n > n_0$, we have:
+    \begin{align*}
+        T(n) & \le \frac{cn\lg(n/2)}{2} + 1 \\
+             & = \frac{cn(\lg n - 1)}{2} + 1 \\
+             & = \frac{cn}{2}\lg n - \frac{cn+2}{2} \\
+             & \le cn\lg n
+    \end{align*}
+    where the last step holds as long as $c \ge 2$.
