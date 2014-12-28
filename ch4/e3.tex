@@ -8,15 +8,14 @@
     \end{align*}
     where the last step holds as long as $c \ge 1$.
 \subsection{4.3-2}
-    Assuming that the solution of $T(n) = T(\ceil{n/2}) + 1$ is $O(n\lg n)$,
+    Assuming that the solution of $T(n) = T(\ceil{n/2}) + 1$ is $O(\lg n)$
     so for some positive constant $c$ and $n \ge n_0$, we have:
     \begin{align*}
-        T(n) & \le \frac{cn\lg(n/2)}{2} + 1 \\
-             & = \frac{cn(\lg n - 1)}{2} + 1 \\
-             & = \frac{cn}{2}\lg n - \frac{cn+2}{2} \\
-             & \le cn\lg n
+        T(n) & \le c\lg(n/2) + 1 \\
+             & = c\lg n - c + 1 \\
+             & \le c\lg n
     \end{align*}
-    where the last step holds as long as $c \ge 2$.
+    where the last step holds as long as $c \le 1$.
 \subsection{4.3-3}
     Assuming that the solution of $T(n) = 2T(\floor{n/2}) + n$ is
     $\Omega(n\lg n)$, so for some positive constant $c$ and $n \ge n_0$, we have:
@@ -33,3 +32,17 @@
     ($1 + 1/n \le 2$), and the boundary condition $T(1) = 1$ holds. Hence
     the solution for the recurence in (4.19) is $O(n\lg g + 1)$, which is
     equivalent to $O(n\lg n)$.
+\subsection{4.3-4}
+    Assume the upper bound of (4.3) is $O(n\lg n)$, for the base case:
+    \begin{align*}
+        T(1) &= \lg 1 = 0 = O(1); \\
+        T(n) &= \ceil[\Big]{\frac{cn}{2}}\lg \ceil[\Big]{\frac{n}{2}} +
+                \floor[\Big]{\frac{cn}{2}} \lg \floor[\Big]{\frac{n}{2}} +
+                O(n) \\
+             &\le cn(\lg n - 1) + n \\
+             &= cn\lg n - (c - 1)n \\
+             &\le cn\lg n
+    \end{align*}
+    where the last step holds as long as $c \ge 1$. \\
+    The lower bound can be proved to be $\Omega(n\lg n)$ in the same way, so
+    $\Theta(n\lg n)$ is the exact solution of (4.3).
