@@ -26,23 +26,39 @@
              & \ge cn\lg n
     \end{align*}
     where the last step holds as long as $c \le 1$.
-\subsection{4.3-3}
+\subsection{4.3-4}
     By gussing the solution to be $O(n\lg n + 1)$, we can show that $T(n) \le
     cn\lg n - cn + n + 2 \le cn\lg n + 1$ as long as $c \ge 1 + 1/n$
     ($1 + 1/n \le 2$), and the boundary condition $T(1) = 1$ holds. Hence
     the solution for the recurence in (4.19) is $O(n\lg g + 1)$, which is
     equivalent to $O(n\lg n)$.
-\subsection{4.3-4}
+\subsection{4.3-5}
     Assume the upper bound of (4.3) is $O(n\lg n)$, for the base case:
     \begin{align*}
-        T(1) &= \lg 1 = 0 = O(1); \\
-        T(n) &= \ceil[\Big]{\frac{cn}{2}}\lg \ceil[\Big]{\frac{n}{2}} +
-                \floor[\Big]{\frac{cn}{2}} \lg \floor[\Big]{\frac{n}{2}} +
-                O(n) \\
-             &\le cn(\lg n - 1) + n \\
-             &= cn\lg n - (c - 1)n \\
-             &\le cn\lg n
+        T(1) & = \lg 1 = 0 = O(1); \\
+        T(n) & = \ceil[\Big]{\frac{cn}{2}}\lg \ceil[\Big]{\frac{n}{2}} +
+                 \floor[\Big]{\frac{cn}{2}} \lg \floor[\Big]{\frac{n}{2}} +
+                 O(n) \\
+             & \le cn(\lg n - 1) + n \\
+             & = cn\lg n - (c - 1)n \\
+             & \le cn\lg n
     \end{align*}
     where the last step holds as long as $c \ge 1$. \\
     The lower bound can be proved to be $\Omega(n\lg n)$ in the same way, so
     $\Theta(n\lg n)$ is the exact solution of (4.3).
+\subsection{4.3-9}
+    Let $m = \log n$, then $T(k^m) = 3T(k^{m/2}) + m$. Let $S(m) = T(k^m)$, so
+    $S(m) = 3S(m/2) + m$. Assume that the solution to this recurence is
+    $O(m\log m)$, so for some positive constant $c$ and $n \ge n_0$, we have:
+    \begin{align*}
+        S(m) & \le \frac{3cm}{2}\log\frac{m}{2} + m \\
+             & = \frac{3cm}{2}\log m + \frac{3c-2}{2}m
+    \end{align*}
+    let $3c/2 = t$, so:
+    \begin{align*}
+        S(m) & \le tm\log m + (t-1)m \\
+             & \le tm\log m
+    \end{align*}
+    where the last step holds as long as $t \le 1$, which means $c \le 2/3$. \\
+    Replace $m$ with $\log n$ in $S(m) = O(m\log m)$, yields
+    $S(m) = T(n) = O(\log n \log \log n)$.
