@@ -46,6 +46,18 @@
     where the last step holds as long as $c \ge 1$. \\
     The lower bound can be proved to be $\Omega(n\lg n)$ in the same way, so
     $\Theta(n\lg n)$ is the exact solution of (4.3).
+\subsection{4.3-8}
+    Assume $T(n) \le cn^2$, then $T(n) = 4cn^2 / 4 + n^2 = (c+1)n^2 > cn^2$,
+    so the assumption fails. \\
+    Now let's assume $T(n) \le cn^2 - bn - d$, then:
+    \begin{align*}
+        T(n) & \le 4(\frac{cn^2}{4} - \frac{bn}{2}- d) + n^2 \\
+             & = (c+1)n^2 - 2bn - 4d \\
+             & = c^2n - bn - d + n^2 - bn - 3d \\
+             & \le cn^2 - bn - d
+    \end{align*}
+    where the last step holds as long as
+    $\frac{b-\sqrt{b^2+12d}}{2} \le n$ or $\frac{b+\sqrt{b^2+12d}}{2} \ge n$.
 \subsection{4.3-9}
     Let $m = \log n$, then $T(k^m) = 3T(k^{m/2}) + m$. Let $S(m) = T(k^m)$, so
     $S(m) = 3S(m/2) + m$. Assume that the solution to this recurence is
