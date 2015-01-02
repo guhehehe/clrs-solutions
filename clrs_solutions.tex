@@ -1,16 +1,7 @@
 %fleqn is used for left aligning the equations in align* env
 \documentclass[a4paper, 11pt, fleqn]{report}
-\usepackage{graphicx}
-\usepackage{amsmath}
-\usepackage{parskip}
-\usepackage{clrscode3e}
-\usepackage{mathtools}
-\usepackage{enumitem}
-\usepackage{mathtools}
-\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
-\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
-%\usepackage{indentfirst}
 
+\input{import.tex}
 \input{config.tex}
 
 \begin{document}
@@ -44,6 +35,7 @@
             \addcontentsline{toc}{section}{Exercises}
                 \input{ch4/e1.tex}
                 \input{ch4/e3.tex}
+                \input{ch4/e4.tex}
         \chapter{ch5}
             \section*{Exercises}
             \addcontentsline{toc}{section}{Exercises}
