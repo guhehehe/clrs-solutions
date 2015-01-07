@@ -3,7 +3,27 @@
     the padded matrix is exact power of 2. It can be proved that: \\
     If $A\cdot B = C$, then:
     \begin{displaymath}
-    \begin{pmatrix} A & 0 \\ 0 & 0 \end{pmatrix} \cdot
-    \begin{pmatrix} B & 0 \\ 0 & 0 \end{pmatrix} =
-    \begin{pmatrix} C & 0 \\ 0 & 0 \end{pmatrix}
+        \begin{pmatrix} A & 0 \\ 0 & 0 \end{pmatrix} \cdot
+        \begin{pmatrix} B & 0 \\ 0 & 0 \end{pmatrix} =
+        \begin{pmatrix} C & 0 \\ 0 & 0 \end{pmatrix}
     \end{displaymath}
+    So that we can compose a $n \times n$ matrix at each recursion with $n =
+    2^k$, then strip off the 0s to get the result. Since the padding process
+    is $O(n^2)$, this lower order term does not affect the total running time,
+    which is $O(n^{\lg 7})$.
+\subsection{4.2-4}
+    Multiplying $3 \times 3$ matries $k$ times takes $k3^{\lg 7}$, if the same
+    cost can multiply $n \times n$ matrices in $o(n^{\lg 7})$, then there is
+    a constant $c$ such that:
+    \begin{displaymath}
+        k3^{\lg 7} < cn^{\lg 7};
+    \end{displaymath}
+    which means:
+    \begin{align*}
+        k & < c\frac{n^{\lg 7}}{3^{\lg 7}} \\
+          & = c\frac{7^{\lg n}}{7^{\lg 3}} \\
+          & = c7^{\lg n - \lg 3} \\
+          & = c7^{\lg \frac{n}{3}} \\
+          & = cn^{\lg \frac{7}{3}}
+    \end{align*}
+    $k$ should be an integer, so the largest $k$ is $cn$.
