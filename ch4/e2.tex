@@ -12,18 +12,9 @@
     is $O(n^2)$, this lower order term does not affect the total running time,
     which is $O(n^{\lg 7})$.
 \subsection{4.2-4}
-    Multiplying $3 \times 3$ matries $k$ times takes $k3^{\lg 7}$, if the same
-    cost can multiply $n \times n$ matrices in $o(n^{\lg 7})$, then there is
-    a constant $c$ such that:
-    \begin{displaymath}
-        k3^{\lg 7} < cn^{\lg 7};
-    \end{displaymath}
-    which means:
-    \begin{align*}
-        k & < c\frac{n^{\lg 7}}{3^{\lg 7}} \\
-          & = c\frac{7^{\lg n}}{7^{\lg 3}} \\
-          & = c7^{\lg n - \lg 3} \\
-          & = c7^{\lg \frac{n}{3}} \\
-          & = cn^{\lg \frac{7}{3}}
-    \end{align*}
-    $k$ should be an integer, so the largest $k$ is $cn$.
+    Being able to multiply $3 \times 3$ matries using $k$ multiplication gives
+    the recurrence $T(n) = kT(n/3) + \Theta(n^2)$. According to the master
+    theorem, since $n^{\log_3^{k-e}} > n^{\log_3^9}$, the solution to this
+    recurrence is $\Theta(n^{log_3^k})$.  To make it $o(n^{\lg 7})$, then
+    $\log_3^k < \lg 7$, so the largest $k$ is 21. The running time of this
+    algorithm is $\Theta(n^{log_3^21})$.
